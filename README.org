@@ -1,0 +1,11 @@
+This is an impala User Defined Function that implements INET_NTOA(), akin to ~MySQL~.
+
+To compile, have ~g++~, ~boost-devel~, ~cmake~ and ~impala-udf-devel~ packages
+installed, and follow the usual compile guide. To use the UDF:
+
+#+BEGIN_SRC: sql
+create function INET_NTOA(int) returns string
+          location '/user/cloudera/libimpala-inet-ntoa.so' SYMBOL='INetNToA';
+
+select INET_NTOA(167773449);
+#+END_SRC
