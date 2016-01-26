@@ -9,3 +9,6 @@ create function INET_NTOA(int) returns string
 
 select INET_NTOA(167773449);
 #+END_SRC
+
+Do note that this UDF is NOT officially supported by Cloudera. Use at your own
+risk.
