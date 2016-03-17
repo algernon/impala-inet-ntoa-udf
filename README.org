@@ -3,15 +3,22 @@ This is a small collection of Impala User Defined Functions.
 At the moment, it has the following UDFs:
 
  - ~INET_NTOA()~, akin to ~MySQL~.
+ - ~UUID()~, to generate universally unique IDs.
 
-To compile, have ~g++~, ~boost-devel~, ~cmake~ and ~impala-udf-devel~ packages
-installed, and follow the usual compile guide. To use the UDF:
+To compile, have ~g++~, ~boost-devel~, ~cmake~, ~util-linux~ (for ~libuuid~) and
+~impala-udf-devel~ packages installed, and follow the usual compile guide. To
+use the UDF:
 
 #+BEGIN_SRC: sql
 create function INET_NTOA(int) returns string
           location '/user/cloudera/libimpala-udf-pocs.so' SYMBOL='INetNToA';
 
 select INET_NTOA(167773449);
+
+create function UUID() returns string
+          location '/user/cloudera/libimpala-udf-pocs.so' SYMBOL='UUIDGen';
+
+select UUID();
 #+END_SRC
 
 Do note that these UDFs are NOT officially supported by Cloudera. Use at your own

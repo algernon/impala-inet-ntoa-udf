@@ -19,4 +19,4 @@ set(EXECUTABLE_OUTPUT_PATH "build")
 
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -ggdb")
 
-add_library(impala-udf-pocs SHARED inet-ntoa-udf.cc)
+add_library(impala-udf-pocs SHARED inet-ntoa-udf.cc uuid-udf.cc)
